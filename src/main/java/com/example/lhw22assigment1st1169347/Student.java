@@ -1,5 +1,6 @@
 package com.example.lhw22assigment1st1169347;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,20 +9,22 @@ public class Student {
     private String firstName;
     private String lastName;
     private int studentNumber;
+    private ArrayList<String> activities;
 
     //constructor
-    public Student(String firstName, String lastName, int studentNumber) {
+    public Student(String firstName, String lastName, int studentNumber, ArrayList<String> activities) {
         setStudentNumber(studentNumber);
         setName(firstName,lastName);
+        this.activities = activities;
+
     }
 
     /**
-     * verify the name by adding the first and last name
+     * Convert the first letter in name to capital with a char arraay
+     * verify the name by adding checking for string length of both first and last name
      * converting it to a char array
      * use the function isLetter to make sure the char is a letter
      */
-
-
     public void setName(String firstName, String lastName) {
         char[] firstNameArray = firstName.toCharArray();
         firstNameArray[0] = Character.toUpperCase(firstNameArray[0]);
@@ -52,7 +55,7 @@ public class Student {
      *
      * @param studentNumber
      * Verify student number
-     * student number must 9 numbers long
+     * student number must 7 numbers long
      * this is done by checking the numbers length
      */
     public void setStudentNumber(int studentNumber) {
@@ -61,5 +64,13 @@ public class Student {
         this.studentNumber = studentNumber;
         else
             throw new IllegalArgumentException("Your student number must contain 9 numbers");
+    }
+
+    public ArrayList<String> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(ArrayList<String> activities) {
+        this.activities = activities;
     }
 }
