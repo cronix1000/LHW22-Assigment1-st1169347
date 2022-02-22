@@ -1,5 +1,7 @@
 package com.example.lhw22assigment1st1169347;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,16 +11,22 @@ public class Student {
     private String firstName;
     private String lastName;
     private int studentNumber;
-    private ArrayList<String> activities;
+    private String[] activities;
+    private Image studentImage;
 
     //constructor
-    public Student(String firstName, String lastName, int studentNumber, ArrayList<String> activities) {
+    public Student(String firstName, String lastName, int studentNumber, String[] activities) {
         setStudentNumber(studentNumber);
         setName(firstName,lastName);
         this.activities = activities;
+        String fileName = String.format("images/%s_%s.jpg", firstName, lastName);
+        studentImage = new Image(getClass().getResource(fileName).toExternalForm());
 
     }
 
+    public Image getStudentImage() {
+        return studentImage;
+    }
     /**
      * Convert the first letter in name to capital with a char arraay
      * verify the name by adding checking for string length of both first and last name
@@ -66,11 +74,11 @@ public class Student {
             throw new IllegalArgumentException("Your student number must contain 9 numbers");
     }
 
-    public ArrayList<String> getActivities() {
+    public String[] getActivities() {
         return activities;
     }
 
-    public void setActivities(ArrayList<String> activities) {
+    public void setActivities(String[] activities) {
         this.activities = activities;
     }
 }
