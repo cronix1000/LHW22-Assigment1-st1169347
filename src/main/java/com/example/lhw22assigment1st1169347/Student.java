@@ -51,13 +51,27 @@ public class Student {
 
     }
     //getters
+
+    /**
+     * return firstName
+     * @return
+     */
     public String getFirstName() {
         return firstName;
     }
 
+    /**
+     * return last name
+     * @return
+     */
     public String getLastName() {
         return lastName;
     }
+
+    /**
+     * return student number
+     * @return
+     */
     public int getStudentNumber() {
         return studentNumber;
     }
@@ -77,14 +91,22 @@ public class Student {
             throw new IllegalArgumentException("Your student number must contain 9 numbers");
     }
 
+    /**
+     * return ArrayList
+     * @return
+     */
     public ArrayList<String> getActivities() {
         return activities;
     }
 
+    /**
+     * Validates the Arraylist not to be empty
+     * @param activities
+     */
     public void setActivities(ArrayList<String> activities) {
         if(activities.size()!= 0)
             this.activities = activities;
         else
-            throw new IllegalArgumentException("The activity list provided was empty");
+            throw new IllegalArgumentException("The activity list provided was empty must have atleast one");
     }
 }

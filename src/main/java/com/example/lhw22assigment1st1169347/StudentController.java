@@ -37,6 +37,13 @@ public class StudentController implements Initializable{
     private Student student;
 
     @Override
+    /**
+     * The initialize method starts when the program first starts
+     * activity Array is created then the student is instantiated above as a global variable
+     * student is populated in the inizilate method
+     * showStudents is run as soon as the initilze method is run
+     * activity Array is passed into the show student method
+     */
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArrayList<String> activities  = new ArrayList<>();
         activities.add("Gaming");
@@ -51,6 +58,11 @@ public class StudentController implements Initializable{
 
 
     @FXML
+    /**
+     * required the ArrayList<String>
+     * Sets all the labels
+     * populates the listview using the for loop
+     */
     private void showStudent(ArrayList<String> list){
         firstNameLabel.setText(student.getFirstName());
         lastNameLabel.setText(student.getLastName());
