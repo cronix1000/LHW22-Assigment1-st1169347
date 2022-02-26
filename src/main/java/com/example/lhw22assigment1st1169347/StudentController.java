@@ -53,24 +53,23 @@ public class StudentController implements Initializable{
         activities.add("Mauy Thai");
 
         student = new Student("Idan", "Gomberg", 2424233, activities);
-        showStudent(student.getActivities());
+        showStudent();
         }
 
 
     @FXML
     /**
-     * required the ArrayList<String>
      * Sets all the labels
      * populates the listview using the for loop
      */
-    private void showStudent(ArrayList<String> list){
+    private void showStudent(){
         firstNameLabel.setText(student.getFirstName());
         lastNameLabel.setText(student.getLastName());
         studentImageView.setImage(student.getStudentImage());
         studentImageView.setRotate(90);
         studentNumberLabel.setText(Integer.toString(student.getStudentNumber()));
         for(int i=0; i<student.getActivities().size();i++) {
-            activityList.getItems().add(list.get(i));
+            activityList.getItems().add(student.getActivities().get(i));
         }
 
 
