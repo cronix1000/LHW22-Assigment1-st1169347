@@ -18,7 +18,7 @@ public class Student {
     public Student(String firstName, String lastName, int studentNumber, ArrayList<String> activities) {
         setStudentNumber(studentNumber);
         setName(firstName,lastName);
-        this.activities = activities;
+        setActivities(activities);
         String fileName = String.format("images/%s_%s.jpg", firstName, lastName);
         studentImage = new Image(getClass().getResource(fileName).toExternalForm());
 
@@ -37,7 +37,10 @@ public class Student {
         char[] firstNameArray = firstName.toCharArray();
         firstNameArray[0] = Character.toUpperCase(firstNameArray[0]);
         char[] lastNameArray = lastName.toCharArray();
-        firstNameArray[0] = Character.toUpperCase(firstNameArray[0]);
+        lastNameArray[0] = Character.toUpperCase(lastNameArray[0]);
+
+        firstName = String.valueOf(firstNameArray);
+        lastName = String.valueOf(lastNameArray);
 
         if(firstName.length() > 2 && lastName.length() > 2){
             this.firstName = firstName;
@@ -79,6 +82,9 @@ public class Student {
     }
 
     public void setActivities(ArrayList<String> activities) {
-        this.activities = activities;
+        if(activities.size()!= 0)
+            this.activities = activities;
+        else
+            throw new IllegalArgumentException("The activity list provided was empty");
     }
 }
