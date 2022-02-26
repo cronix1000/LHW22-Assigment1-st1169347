@@ -35,11 +35,15 @@ public class StudentController implements Initializable{
 
 
     private Student student;
-    public String str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        String[] activities = {"Gaming","Boxing","WeightLifting","Game Development"};
+        ArrayList<String> activities  = new ArrayList<>();
+        activities.add("Gaming");
+        activities.add("Boxing");
+        activities.add("WeightLifting");
+        activities.add("Game Development");
+        activities.add("Mauy Thai");
 
         student = new Student("Idan", "Gomberg", 2424233, activities);
         showStudent(student.getActivities());
@@ -47,13 +51,14 @@ public class StudentController implements Initializable{
 
 
     @FXML
-    private void showStudent(String[] list){
+    private void showStudent(ArrayList<String> list){
         firstNameLabel.setText(student.getFirstName());
         lastNameLabel.setText(student.getLastName());
         studentImageView.setImage(student.getStudentImage());
+        studentImageView.setRotate(90);
         studentNumberLabel.setText(Integer.toString(student.getStudentNumber()));
-        for(int i=0; i<student.getActivities().length;i++) {
-            activityList.getItems().add(list[i]);
+        for(int i=0; i<student.getActivities().size();i++) {
+            activityList.getItems().add(list.get(i));
         }
 
 

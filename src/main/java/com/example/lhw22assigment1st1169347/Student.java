@@ -11,11 +11,11 @@ public class Student {
     private String firstName;
     private String lastName;
     private int studentNumber;
-    private String[] activities;
+    private ArrayList<String> activities;
     private Image studentImage;
 
     //constructor
-    public Student(String firstName, String lastName, int studentNumber, String[] activities) {
+    public Student(String firstName, String lastName, int studentNumber, ArrayList<String> activities) {
         setStudentNumber(studentNumber);
         setName(firstName,lastName);
         this.activities = activities;
@@ -74,11 +74,11 @@ public class Student {
             throw new IllegalArgumentException("Your student number must contain 9 numbers");
     }
 
-    public String[] getActivities() {
+    public ArrayList<String> getActivities() {
         return activities;
     }
 
-    public void setActivities(String[] activities) {
+    public void setActivities(ArrayList<String> activities) {
         this.activities = activities;
     }
 }
